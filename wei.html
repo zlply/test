@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>微时代移动应用 - Arry老师</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			body{background:url("images/bg.jpg") no-repeat;font-size:12px;font-family:"微软雅黑";color:#666;}
+
+			/*phone start*/
+			.phone{width:322px;height:641px;margin:30px auto;position:relative;}
+			.phone .p_top{height:42px;background:url("images/phone_top.png") no-repeat;}
+			.phone .p_info{height:20px;background:url("images/top.jpg") no-repeat;}
+			.phone .p_title{width:320px;height:40px;background:#000;text-align:center;line-height:40px;font-size:20px;border-left:1px solid #fff;border-right:1px solid #fff;}
+			.phone .p_con{width:320px;height:486px;border-left:1px solid #fff;border-right:1px solid #fff;background:url("images/1.jpg") top center;background-size:cover;}
+			.phone .p_bottom{height:47px;background:url("images/phone_bottom.png") no-repeat;}
+			.phone .p_music{width:40px;height:40px;display:block;position:absolute;top:125px;right:20px;border-radius:20px;background:url(http://as.eqxiu.com/view/images/normalmusic.svg);background-size:cover;}
+			/*end phone*/
+
+
+			/*定义图片旋转动画的关键帧*/
+			@-webkit-keyframes arry {
+				from{
+					-webkit-transform:rotate(0deg)
+				} to {
+					-webkit-transform:rotate(360deg)
+				}
+			}
+
+			/*调用关键帧*/
+			.rotate{
+				-webkit-animation: arry 1.2s linear infinite;
+				animation: arry 1.2s linear infinite;
+			}
+
+
+		</style>
+
+	</head>
+<body>
+
+	<!--phone start-->
+	<div class="phone">
+		<div class="p_top"></div>
+		<div class="p_info"></div>
+		<div class="p_title">咱们结婚吧</div>
+		<div class="p_con"></div>
+		<div class="p_bottom"></div>
+		<a href="#" class="p_music"></a>
+	</div>
+	<!--end phone-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	
+	$(function(){
+		
+		// 创建一个mp3的播放器
+		var audioDom = document.createElement("audio");
+		// 设置播放器地址
+		audioDom.src = "mp3/1.mp3";
+		// 自动播放
+		//audioDom.autoplay = "autoplay";
+		
+
+
+		// 点击控制音乐播放
+		$(".p_music").click(function(){
+			if(audioDom.paused){
+				audioDom.play();
+			} else {
+				audioDom.pause();
+			}
+			$(this).toggleClass("rotate");
+		});
+			
+	});
+
+</script>
+
+</body>
+</html>
